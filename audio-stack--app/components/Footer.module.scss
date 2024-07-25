@@ -1,0 +1,39 @@
+.footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+    &Inner {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: center;
+      flex-direction: column;
+    }
+  
+    .socialLinks {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+  
+      .link {
+        color: #fff;
+        text-decoration: none;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  
+    .copyright {
+      font-size: 0.875rem;
+    }
+  }
+  
