@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+  functions = "netlify/functions" # Directory for serverless functions if you use them
+
+[build.environment]
+  NODE_VERSION = "16" # Ensure the Node.js version is compatible
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
