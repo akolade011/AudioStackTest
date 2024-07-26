@@ -8,7 +8,11 @@ interface Release {
   thumb: string;
 }
 
-const ArtistPage = ({ releases }: { releases: Release[] }) => {
+interface ArtistPageProps {
+  releases: Release[];
+}
+
+const ArtistPage: React.FC<ArtistPageProps> = ({ releases }) => {
   const router = useRouter();
   const { id } = router.query;
   const [page, setPage] = useState(1);
@@ -38,18 +42,36 @@ const ArtistPage = ({ releases }: { releases: Release[] }) => {
   );
 };
 
-export async function getServerSideProps({ query: { id, page = 1 } }: any) {
-  let releases = [];
+export async function getServerSideProps({ query }: { query: { id?: string; page?: string } }) {
+  const id = query.id;
+  const page = parseInt(query.page as string, 10) || 1;
+  let releases: Release[] = [];
+
+  if (!id) {
+    console.error('Artist ID is required.');
+    return {
+      props: {
+        releases: [],
+      },
+    };
+  }
+
   try {
     const response = await fetch(`https://api.discogs.com/artists/${id}/releases?per_page=5&page=${page}`, {
       headers: {
         'Authorization': `Discogs token=${process.env.DISCOGS_TOKEN}`,
       },
     });
+
+    if (!response.ok) {
+      console.error(`Failed to fetch data: ${response.statusText}`);
+      throw new Error(`Failed to fetch data: ${response.statusText}`);
+    }
+
     const data = await response.json();
-    releases = data.releases;
-  } catch (error: any) {
-    console.error('Error fetching releases:', error.message);
+    releases = data.releases || [];
+  } catch (error: unknown) {
+    console.error('Error fetching releases:', (error as Error).message);
   }
 
   return {
