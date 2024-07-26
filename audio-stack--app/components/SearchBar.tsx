@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './SearchBar.module.scss';  // Make sure this path is correct
+import styles from './SearchBar.module.scss'; 
 
 interface SearchBarProps {
   onSearch: (searchTerm: string) => void;

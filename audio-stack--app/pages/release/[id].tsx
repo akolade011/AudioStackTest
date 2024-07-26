@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/ReleasePage.module.scss'; // Ensure this path is correct
+import styles from '../../styles/ReleasePage.module.scss'; 
 
 interface Track {
   position: string;

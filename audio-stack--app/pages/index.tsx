@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import SearchBar from '../components/SearchBar';  // Ensure this path is correct
-import Hero from '../components/Hero';  // Ensure this path is correct
-import styles from './HomePage.module.scss';  // Ensure this path is correct
+import SearchBar from '../components/SearchBar'; 
+import Hero from '../components/Hero'; 
+import styles from './HomePage.module.scss'; 
 
 interface Artist {
   id: number;
