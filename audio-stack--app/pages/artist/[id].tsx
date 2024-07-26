@@ -70,8 +70,12 @@ export async function getServerSideProps({ query }: { query: { id?: string; page
 
     const data = await response.json();
     releases = data.releases || [];
-  } catch (error: unknown) {
-    console.error('Error fetching releases:', (error as Error).message);
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error('Error fetching releases:', error.message);
+    } else {
+      console.error('An unknown error occurred:', error);
+    }
   }
 
   return {
