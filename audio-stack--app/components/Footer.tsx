@@ -7,17 +7,17 @@ const Footer: React.FC = () => {
     <footer className={styles.footer}>
       <div className={styles.footerInner}>
         <div className={styles.socialLinks}>
-          <Link href="https://www.facebook.com" passHref legacyBehavior>
+          <Link href="https://www.facebook.com/groups/2383392265/" passHref legacyBehavior>
             <a target="_blank" rel="noopener noreferrer" className={styles.link}>
               Facebook
             </a>
           </Link>
-          <Link href="https://www.twitter.com" passHref legacyBehavior>
+          <Link href="https://x.com/discogs" passHref legacyBehavior>
             <a target="_blank" rel="noopener noreferrer" className={styles.link}>
               Twitter
             </a>
           </Link>
-          <Link href="https://www.instagram.com" passHref legacyBehavior>
+          <Link href="https://www.instagram.com/discogs/?hl=en" passHref legacyBehavior>
             <a target="_blank" rel="noopener noreferrer" className={styles.link}>
               Instagram
             </a>
